@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] — Hrdr</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" asp-page="/Items/Index">Hrdr</a>
+        <nav class="site-nav">
+            <a asp-page="/Items/Index">Items</a>
+            <a asp-page="/Projects/Index">Projects</a>
+        </nav>
+    </header>
+    <main class="site-main">
+        @RenderBody()
+    </main>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

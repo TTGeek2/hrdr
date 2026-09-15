@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "hrdr": {
+      "url": "http://pi501.local:5080/mcp"
+    }
+  }
+}

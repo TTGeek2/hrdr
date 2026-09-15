@@ -1,0 +1,55 @@
+@page
+@model Hrdr.Pages.Projects.IndexModel
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<h1>Projects</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p class="alert-error">@Model.ErrorMessage</p>
+}
+
+<form method="post" asp-page-handler="Create" class="create-row">
+    <div class="field">
+        <label asp-for="NewName">New project</label>
+        <input asp-for="NewName" placeholder="Name" required />
+    </div>
+    <button type="submit" class="btn">Create</button>
+</form>
+
+@if (Model.Projects.Count == 0)
+{
+    <p class="empty">No projects yet. Create one to get started.</p>
+}
+else
+{
+    <ul class="project-list">
+        @foreach (var project in Model.Projects)
+        {
+            <li>
+                <div class="item-main">
+                    <div class="project-name">@project.Name</div>
+                    @if (!string.IsNullOrEmpty(project.Slug))
+                    {
+                        <div class="project-slug">@project.Slug</div>
+                    }
+                </div>
+                <div class="actions">
+                    <a class="btn btn-secondary btn-sm" asp-page="/Items/Index" asp-route-projectId="@project.Id">Items</a>
+                    <form method="post" asp-page-handler="Rename" class="inline-rename">
+                        <input type="hidden" name="id" value="@project.Id" />
+                        <input name="RenameName" value="@project.Name" required aria-label="Rename @project.Name" />
+                        <button type="submit" class="btn btn-secondary btn-sm">Rename</button>
+                    </form>
+                    <form method="post" asp-page-handler="Delete" class="inline-form"
+                          onsubmit="return confirm('Delete project “@project.Name” and all its items?');">
+                        <input type="hidden" name="id" value="@project.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </div>
+            </li>
+        }
+    </ul>
+}

@@ -1,0 +1,16 @@
+[Unit]
+Description=Hrdr work item tracker
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ttgeek/Projects/hrdr/publish
+ExecStart=/home/ttgeek/.dotnet/dotnet /home/ttgeek/Projects/hrdr/publish/Hrdr.dll
+Restart=on-failure
+RestartSec=3
+EnvironmentFile=/home/ttgeek/Projects/hrdr/hrdr.env
+StandardOutput=append:/home/ttgeek/Projects/hrdr/hrdr.log
+StandardError=append:/home/ttgeek/Projects/hrdr/hrdr.log
+
+[Install]
+WantedBy=default.target

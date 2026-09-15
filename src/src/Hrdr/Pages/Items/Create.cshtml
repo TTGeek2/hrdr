@@ -1,0 +1,35 @@
+@page
+@model Hrdr.Pages.Items.CreateModel
+@{
+    ViewData["Title"] = "New item";
+}
+
+<h1>New item</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p class="alert-error">@Model.ErrorMessage</p>
+}
+
+<form method="post" class="form-panel">
+    <div class="field">
+        <label asp-for="Input.Title">Title</label>
+        <input asp-for="Input.Title" autofocus />
+    </div>
+    <div class="field">
+        <label asp-for="Input.Description">Description</label>
+        <textarea asp-for="Input.Description"></textarea>
+    </div>
+    <div class="field">
+        <label asp-for="Input.Type">Type</label>
+        <select asp-for="Input.Type" asp-items="Html.GetEnumSelectList<WorkItemType>()"></select>
+    </div>
+    <div class="field">
+        <label asp-for="Input.ProjectId">Project</label>
+        <select asp-for="Input.ProjectId" asp-items="Model.ProjectOptions"></select>
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn">Create</button>
+        <a class="btn btn-secondary" asp-page="Index" asp-route-projectId="@Model.Input.ProjectId">Cancel</a>
+    </div>
+</form>

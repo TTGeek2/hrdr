@@ -1,0 +1,13 @@
+[Unit]
+Description=Hrdr work item tracker
+After=network.target
+
+[Service]
+WorkingDirectory=%h/Projects/hrdr/publish
+ExecStart=%h/.dotnet/dotnet Hrdr.dll
+Environment=ASPNETCORE_URLS=http://0.0.0.0:5080
+Environment=ConnectionStrings__Default=Data Source=/home/ttgeek/Projects/hrdr/data/hrdr.db
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
