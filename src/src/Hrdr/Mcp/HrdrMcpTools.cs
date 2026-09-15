@@ -112,13 +112,22 @@ public static class HrdrMcpTools
         [Description("Optional type: Feature or Bug")] WorkItemType? type = null,
         [Description("Optional new title")] string? title = null,
         [Description("Optional new description")] string? description = null,
+        [Description("Optional state: Created, Refined, In development, on pullrequest, done, released")] string? state = null,
         CancellationToken ct = default)
     {
         try
         {
+            WorkItemState? parsedState = null;
+            if (state is not null)
+            {
+                if (!WorkItemStateHelpers.TryParse(state, out var s))
+                    return Error($"Invalid state '{state}'. Valid values: Created, Refined, In development, on pullrequest, done, released.");
+                parsedState = s;
+            }
+
             var updated = await items.UpdateAsync(
                 id,
-                new UpdateWorkItemRequest(projectId, type, title, description),
+                new UpdateWorkItemRequest(projectId, type, title, description, parsedState),
                 ct);
             return updated is null ? Error($"Item {id} not found.") : Json(updated);
         }

@@ -9,6 +9,7 @@ public record WorkItemDto(
     int ProjectId,
     string? ProjectName,
     WorkItemType Type,
+    WorkItemState State,
     string Title,
     string Description,
     int SortOrder,
@@ -19,13 +20,15 @@ public record CreateWorkItemRequest(
     int ProjectId,
     WorkItemType Type,
     string Title,
-    string? Description = null);
+    string? Description = null,
+    WorkItemState State = WorkItemState.Created);
 
 public record UpdateWorkItemRequest(
     int? ProjectId = null,
     WorkItemType? Type = null,
     string? Title = null,
-    string? Description = null);
+    string? Description = null,
+    WorkItemState? State = null);
 
 public record ReorderWorkItemsRequest(IReadOnlyList<int> OrderedIds);
 
@@ -81,6 +84,7 @@ public class WorkItemService(HrdrDbContext db)
         {
             ProjectId = request.ProjectId,
             Type = request.Type,
+            State = request.State,
             Title = title,
             Description = request.Description?.Trim() ?? "",
             SortOrder = maxOrder + 1,
@@ -128,6 +132,9 @@ public class WorkItemService(HrdrDbContext db)
 
         if (request.Description is not null)
             item.Description = request.Description.Trim();
+
+        if (request.State is not null)
+            item.State = request.State.Value;
 
         item.UpdatedAt = DateTimeOffset.UtcNow;
         await db.SaveChangesAsync(ct);
@@ -181,5 +188,5 @@ public class WorkItemService(HrdrDbContext db)
     }
 
     private static WorkItemDto ToDto(WorkItem w) =>
-        new(w.Id, w.ProjectId, w.Project?.Name, w.Type, w.Title, w.Description, w.SortOrder, w.CreatedAt, w.UpdatedAt);
+        new(w.Id, w.ProjectId, w.Project?.Name, w.Type, w.State, w.Title, w.Description, w.SortOrder, w.CreatedAt, w.UpdatedAt);
 }

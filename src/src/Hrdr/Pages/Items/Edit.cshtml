@@ -26,6 +26,10 @@
         <select asp-for="Input.Type" asp-items="Html.GetEnumSelectList<WorkItemType>()"></select>
     </div>
     <div class="field">
+        <label asp-for="Input.State">State</label>
+        <select asp-for="Input.State" asp-items="Html.GetEnumSelectList<WorkItemState>()"></select>
+    </div>
+    <div class="field">
         <label asp-for="Input.ProjectId">Project</label>
         <select asp-for="Input.ProjectId" asp-items="Model.ProjectOptions"></select>
     </div>
