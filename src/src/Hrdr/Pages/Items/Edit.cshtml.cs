@@ -21,6 +21,7 @@ public class EditModel(WorkItemService workItems, ProjectService projects) : Pag
     {
         public int ProjectId { get; set; }
         public WorkItemType Type { get; set; }
+        public WorkItemState State { get; set; } = WorkItemState.Created;
         public string Title { get; set; } = "";
         public string? Description { get; set; }
     }
@@ -35,6 +36,7 @@ public class EditModel(WorkItemService workItems, ProjectService projects) : Pag
         {
             ProjectId = item.ProjectId,
             Type = item.Type,
+            State = item.State,
             Title = item.Title,
             Description = item.Description
         };
@@ -59,7 +61,7 @@ public class EditModel(WorkItemService workItems, ProjectService projects) : Pag
         {
             var updated = await workItems.UpdateAsync(
                 Id,
-                new UpdateWorkItemRequest(Input.ProjectId, Input.Type, Input.Title, Input.Description),
+                new UpdateWorkItemRequest(Input.ProjectId, Input.Type, Input.Title, Input.Description, Input.State),
                 ct);
             if (updated is null) return NotFound();
             return RedirectToPage("Index", new { ProjectId = updated.ProjectId });

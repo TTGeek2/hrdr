@@ -5,6 +5,7 @@ public class WorkItem
     public int Id { get; set; }
     public int ProjectId { get; set; }
     public WorkItemType Type { get; set; }
+    public WorkItemState State { get; set; } = WorkItemState.Created;
     public required string Title { get; set; }
     public string Description { get; set; } = "";
     public int SortOrder { get; set; }

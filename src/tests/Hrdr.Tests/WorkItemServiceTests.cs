@@ -21,12 +21,11 @@ public class WorkItemServiceTests : IAsyncLifetime
             .UseSqlite(_connection)
             .Options;
         _db = new HrdrDbContext(options);
-        _db.Database.EnsureCreated();
         _projects = new ProjectService(_db);
         _items = new WorkItemService(_db);
     }
 
-    public async Task InitializeAsync() => await Task.CompletedTask;
+    public async Task InitializeAsync() => await _db.EnsureDatabaseAsync();
 
     public async Task DisposeAsync()
     {
@@ -46,6 +45,7 @@ public class WorkItemServiceTests : IAsyncLifetime
 
         Assert.Equal(0, a.SortOrder);
         Assert.Equal(1, b.SortOrder);
+        Assert.Equal(WorkItemState.Created, a.State);
 
         var filtered = await _items.ListAsync(projectId: p1.Id);
         Assert.Equal(2, filtered.Count);
@@ -69,5 +69,50 @@ public class WorkItemServiceTests : IAsyncLifetime
         var list = await _items.ListAsync(projectId: p.Id);
         Assert.Equal([c.Id, a.Id, b.Id], list.Select(i => i.Id).ToArray());
         Assert.Equal([0, 1, 2], list.Select(i => i.SortOrder).ToArray());
+    }
+
+    [Fact]
+    public async Task Update_changes_state()
+    {
+        var p = await _projects.CreateAsync(new CreateProjectRequest("Alpha"));
+        var item = await _items.CreateAsync(new CreateWorkItemRequest(p.Id, WorkItemType.Feature, "A"));
+        Assert.Equal(WorkItemState.Created, item.State);
+
+        var updated = await _items.UpdateAsync(item.Id, new UpdateWorkItemRequest(State: WorkItemState.InDevelopment));
+        Assert.NotNull(updated);
+        Assert.Equal(WorkItemState.InDevelopment, updated.State);
+
+        var fetched = await _items.GetAsync(item.Id);
+        Assert.NotNull(fetched);
+        Assert.Equal(WorkItemState.InDevelopment, fetched.State);
+    }
+
+    [Theory]
+    [InlineData("Created", WorkItemState.Created)]
+    [InlineData("Refined", WorkItemState.Refined)]
+    [InlineData("In development", WorkItemState.InDevelopment)]
+    [InlineData("on pullrequest", WorkItemState.OnPullRequest)]
+    [InlineData("done", WorkItemState.Done)]
+    [InlineData("released", WorkItemState.Released)]
+    public void TryParse_accepts_canonical_state_strings(string value, WorkItemState expected)
+    {
+        Assert.True(WorkItemStateHelpers.TryParse(value, out var state));
+        Assert.Equal(expected, state);
+        Assert.Equal(value, state.ToDisplayString());
+    }
+
+    [Fact]
+    public void BoardOrder_matches_required_column_sequence()
+    {
+        Assert.Equal(
+            [
+                WorkItemState.Created,
+                WorkItemState.Refined,
+                WorkItemState.InDevelopment,
+                WorkItemState.OnPullRequest,
+                WorkItemState.Done,
+                WorkItemState.Released
+            ],
+            WorkItemStateHelpers.BoardOrder);
     }
 }
