@@ -26,24 +26,51 @@
     </div>
 </form>
 
+@if (!Model.CanReorder)
+{
+    @if (Model.ProjectId is null or <= 0)
+    {
+        <p class="note">Select a project to enable drag-and-drop reordering.</p>
+    }
+    else if (Model.Type is not null)
+    {
+        <p class="note">Clear the type filter to reorder the full project list.</p>
+    }
+}
+
 @if (Model.Items.Count == 0)
 {
     <p class="empty">No work items match these filters.</p>
 }
 
-<div class="kanban-board">
+<div class="kanban-board"
+     @if (Model.CanReorder)
+     {
+         <text>data-project-id="@Model.ProjectId" data-ordered-ids="@string.Join(',', Model.Items.Select(i => i.Id))"</text>
+     }>
     @foreach (var column in Model.Columns)
     {
-        <section class="kanban-column">
+        <section class="kanban-column" data-state="@column.State">
             <header class="kanban-column-header">
+                <button type="button"
+                        class="kanban-collapse-toggle"
+                        aria-expanded="true"
+                        aria-label="Collapse @column.State.ToDisplayString() column"
+                        title="Collapse column">
+                    <span class="kanban-collapse-icon" aria-hidden="true">◀</span>
+                </button>
                 <h2>@column.State.ToDisplayString()</h2>
                 <span class="kanban-count">@column.Items.Count</span>
             </header>
-            <ul class="kanban-cards">
+            <ul class="kanban-cards @(Model.CanReorder ? "sortable" : null)">
                 @foreach (var item in column.Items)
                 {
-                    <li class="kanban-card">
+                    <li class="kanban-card" data-id="@item.Id">
                         <p class="item-title">
+                            @if (Model.CanReorder)
+                            {
+                                <span class="drag-hint" aria-hidden="true">⋮⋮</span>
+                            }
                             <span class="item-id">#@item.Id</span>
                             @item.Title
                         </p>
@@ -74,3 +101,133 @@
         </section>
     }
 </div>
+
+@section Scripts {
+    <script>
+        (function () {
+            var storageKey = 'hrdr.kanban.collapsedColumns';
+            var board = document.querySelector('.kanban-board');
+            if (!board) return;
+
+            function readCollapsed() {
+                try {
+                    var raw = localStorage.getItem(storageKey);
+                    if (!raw) return {};
+                    var parsed = JSON.parse(raw);
+                    var map = {};
+                    if (Array.isArray(parsed)) {
+                        parsed.forEach(function (state) { map[state] = true; });
+                    }
+                    return map;
+                } catch (e) {
+                    return {};
+                }
+            }
+
+            function writeCollapsed(map) {
+                try {
+                    localStorage.setItem(storageKey, JSON.stringify(Object.keys(map)));
+                } catch (e) {
+                    /* ignore quota / private mode */
+                }
+            }
+
+            function columnLabel(column) {
+                var heading = column.querySelector('h2');
+                return (heading && heading.textContent) ? heading.textContent.trim() : 'column';
+            }
+
+            function setCollapsed(column, collapsed) {
+                var state = column.getAttribute('data-state');
+                var toggle = column.querySelector('.kanban-collapse-toggle');
+                var label = columnLabel(column);
+                if (collapsed) column.classList.add('is-collapsed');
+                else column.classList.remove('is-collapsed');
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+                    toggle.setAttribute(
+                        'aria-label',
+                        (collapsed ? 'Expand ' : 'Collapse ') + label + ' column');
+                    toggle.title = collapsed ? 'Expand column' : 'Collapse column';
+                }
+                if (state) {
+                    var collapsedStates = readCollapsed();
+                    if (collapsed) collapsedStates[state] = true;
+                    else delete collapsedStates[state];
+                    writeCollapsed(collapsedStates);
+                }
+            }
+
+            var collapsedStates = readCollapsed();
+            board.querySelectorAll('.kanban-column[data-state]').forEach(function (column) {
+                var state = column.getAttribute('data-state');
+                if (state && collapsedStates[state]) {
+                    setCollapsed(column, true);
+                }
+            });
+
+            board.addEventListener('click', function (event) {
+                var header = event.target.closest('.kanban-column-header');
+                if (!header || !board.contains(header)) return;
+                var column = header.closest('.kanban-column');
+                if (!column) return;
+                event.preventDefault();
+                setCollapsed(column, !column.classList.contains('is-collapsed'));
+            });
+        })();
+    </script>
+    @if (Model.CanReorder)
+    {
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+        <script>
+            (function () {
+                const board = document.querySelector('.kanban-board');
+                if (!board) return;
+                const projectId = board.dataset.projectId;
+                if (!projectId) return;
+
+                function readOrder() {
+                    return (board.dataset.orderedIds || '')
+                        .split(',')
+                        .filter(Boolean)
+                        .map(id => parseInt(id, 10));
+                }
+
+                function writeOrder(ids) {
+                    board.dataset.orderedIds = ids.join(',');
+                }
+
+                async function persistOrder(orderedIds) {
+                    const res = await fetch('/api/projects/' + projectId + '/items/reorder', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ orderedIds })
+                    });
+                    if (!res.ok) {
+                        alert('Reorder failed. Reloading…');
+                        location.reload();
+                    }
+                }
+
+                board.querySelectorAll('.kanban-cards.sortable').forEach(list => {
+                    Sortable.create(list, {
+                        animation: 150,
+                        ghostClass: 'sortable-ghost',
+                        chosenClass: 'sortable-chosen',
+                        onEnd: async function () {
+                            const newColumnIds = Array.from(list.querySelectorAll('li[data-id]'))
+                                .map(li => parseInt(li.dataset.id, 10));
+                            const columnSet = new Set(newColumnIds);
+                            const fullOrder = readOrder();
+                            let i = 0;
+                            const merged = fullOrder.map(id =>
+                                columnSet.has(id) ? newColumnIds[i++] : id);
+                            writeOrder(merged);
+                            await persistOrder(merged);
+                        }
+                    });
+                });
+            })();
+        </script>
+    }
+}

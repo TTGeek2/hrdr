@@ -17,6 +17,7 @@ public class IndexModel(WorkItemService workItems, ProjectService projects) : Pa
     public IReadOnlyList<WorkItemDto> Items { get; private set; } = [];
     public IReadOnlyList<KanbanColumn> Columns { get; private set; } = [];
     public SelectList ProjectOptions { get; private set; } = null!;
+    public bool CanReorder => ProjectId is > 0 && Type is null;
 
     public record KanbanColumn(WorkItemState State, IReadOnlyList<WorkItemDto> Items);
 
