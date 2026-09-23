@@ -4,11 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewData["Title"] — Hrdr</title>
-    <link rel="stylesheet" href="~/css/site.css?v=20260918-collapse" />
+    <link rel="icon" href="~/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="~/css/site.css?v=20260923-favicon" />
 </head>
 <body>
     <header class="site-header">
-        <a class="brand" asp-page="/Items/Index">Hrdr</a>
+        <a class="brand" asp-page="/Items/Index">
+            <img class="brand-mark" src="~/favicon.svg" width="28" height="28" alt="" />
+            Hrdr
+        </a>
         <nav class="site-nav">
             <a asp-page="/Items/Index">Items</a>
             <a asp-page="/Projects/Index">Projects</a>
