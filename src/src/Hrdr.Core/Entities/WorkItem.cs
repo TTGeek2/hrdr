@@ -13,4 +13,5 @@ public class WorkItem
     public DateTimeOffset UpdatedAt { get; set; }
 
     public Project Project { get; set; } = null!;
+    public ICollection<Comment> Comments { get; set; } = new List<Comment>();
 }

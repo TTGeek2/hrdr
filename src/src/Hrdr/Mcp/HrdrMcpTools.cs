@@ -164,6 +164,39 @@ public static class HrdrMcpTools
         }
     }
 
+    [McpServerTool(Name = "list_comments"), Description("List comments for a work item.")]
+    public static async Task<string> ListComments(
+        CommentService comments,
+        [Description("Work item id")] int workItemId,
+        CancellationToken ct = default)
+        => Json(await comments.ListAsync(workItemId, ct));
+
+    [McpServerTool(Name = "create_comment"), Description("Add a comment to a work item.")]
+    public static async Task<string> CreateComment(
+        CommentService comments,
+        [Description("Work item id")] int workItemId,
+        [Description("Comment body")] string body,
+        CancellationToken ct = default)
+    {
+        try
+        {
+            return Json(await comments.CreateAsync(new CreateCommentRequest(workItemId, body), ct));
+        }
+        catch (ArgumentException ex)
+        {
+            return Error(ex.Message);
+        }
+    }
+
+    [McpServerTool(Name = "delete_comment"), Description("Delete a comment by id.")]
+    public static async Task<string> DeleteComment(
+        CommentService comments,
+        [Description("Comment id")] int id,
+        CancellationToken ct = default)
+        => await comments.DeleteAsync(id, ct)
+            ? """{"ok":true}"""
+            : Error($"Comment {id} not found.");
+
     private static string Json<T>(T value) =>
         JsonSerializer.Serialize(value, JsonOptions);
 

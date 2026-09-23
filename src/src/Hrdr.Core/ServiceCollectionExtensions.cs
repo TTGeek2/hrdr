@@ -14,6 +14,7 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<ProjectService>();
         services.AddScoped<WorkItemService>();
+        services.AddScoped<CommentService>();
         return services;
     }
 }

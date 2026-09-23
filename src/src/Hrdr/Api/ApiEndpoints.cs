@@ -108,6 +108,38 @@ public static class ApiEndpoints
         items.MapDelete("/{id:int}", async (int id, WorkItemService svc, CancellationToken ct) =>
             await svc.DeleteAsync(id, ct) ? Results.NoContent() : Results.NotFound());
 
+        items.MapGet("/{itemId:int}/comments", async (int itemId, CommentService svc, CancellationToken ct) =>
+            Results.Ok(await svc.ListAsync(itemId, ct)));
+
+        items.MapPost("/{itemId:int}/comments", async (
+            int itemId,
+            CreateCommentBody body,
+            CommentService svc,
+            CancellationToken ct) =>
+        {
+            try
+            {
+                var created = await svc.CreateAsync(new CreateCommentRequest(itemId, body.Body), ct);
+                return Results.Created($"/api/comments/{created.Id}", created);
+            }
+            catch (ArgumentException ex)
+            {
+                return Results.BadRequest(new { error = ex.Message });
+            }
+        });
+
+        var comments = api.MapGroup("/comments");
+        comments.MapGet("/{id:int}", async (int id, CommentService svc, CancellationToken ct) =>
+        {
+            var comment = await svc.GetAsync(id, ct);
+            return comment is null ? Results.NotFound() : Results.Ok(comment);
+        });
+
+        comments.MapDelete("/{id:int}", async (int id, CommentService svc, CancellationToken ct) =>
+            await svc.DeleteAsync(id, ct) ? Results.NoContent() : Results.NotFound());
+
         return app;
     }
+
+    private record CreateCommentBody(string Body);
 }

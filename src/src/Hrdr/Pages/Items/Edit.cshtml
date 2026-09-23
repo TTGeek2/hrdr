@@ -38,3 +38,48 @@
         <a class="btn btn-secondary" asp-page="Index" asp-route-projectId="@Model.Input.ProjectId">Cancel</a>
     </div>
 </form>
+
+<section class="comments-section form-panel">
+    <h2>Comments</h2>
+
+    @if (!string.IsNullOrEmpty(Model.CommentErrorMessage))
+    {
+        <p class="alert-error">@Model.CommentErrorMessage</p>
+    }
+
+    @if (Model.Comments.Count == 0)
+    {
+        <p class="empty">No comments yet.</p>
+    }
+    else
+    {
+        <ul class="comment-list">
+            @foreach (var comment in Model.Comments)
+            {
+                <li>
+                    <div class="comment-main">
+                        <p class="comment-body">@comment.Body</p>
+                        <p class="item-meta">@comment.CreatedAt.ToLocalTime().ToString("g")</p>
+                    </div>
+                    <form method="post" asp-page-handler="DeleteComment" class="inline-form"
+                          onsubmit="return confirm('Delete this comment?');">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="hidden" name="commentId" value="@comment.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </li>
+            }
+        </ul>
+    }
+
+    <form method="post" asp-page-handler="AddComment" class="comment-form">
+        <input type="hidden" asp-for="Id" />
+        <div class="field">
+            <label asp-for="NewCommentBody">Add comment</label>
+            <textarea asp-for="NewCommentBody" rows="3"></textarea>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn">Add comment</button>
+        </div>
+    </form>
+</section>

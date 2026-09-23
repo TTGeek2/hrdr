@@ -67,6 +67,7 @@ Add to Cursor MCP settings (see also `docs/mcp-cursor-config.json`):
 | `list_projects` / `create_project` / `update_project` / `delete_project` | Project CRUD |
 | `list_items` / `get_item` / `create_item` / `update_item` / `delete_item` | Item CRUD (+ project/type filter on list) |
 | `reorder_items` | Set priority order for a project |
+| `list_comments` / `create_comment` / `delete_comment` | Comment list/add/delete for a work item |
 
 ## Tests
 

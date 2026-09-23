@@ -7,6 +7,7 @@ public class HrdrDbContext(DbContextOptions<HrdrDbContext> options) : DbContext(
 {
     public DbSet<Project> Projects => Set<Project>();
     public DbSet<WorkItem> WorkItems => Set<WorkItem>();
+    public DbSet<Comment> Comments => Set<Comment>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -29,16 +30,27 @@ public class HrdrDbContext(DbContextOptions<HrdrDbContext> options) : DbContext(
                 .HasForeignKey(w => w.ProjectId)
                 .OnDelete(DeleteBehavior.Cascade);
         });
+
+        modelBuilder.Entity<Comment>(e =>
+        {
+            e.Property(c => c.Body).HasMaxLength(8000).IsRequired();
+            e.HasIndex(c => c.WorkItemId);
+            e.HasOne(c => c.WorkItem)
+                .WithMany(w => w.Comments)
+                .HasForeignKey(c => c.WorkItemId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
     }
 
     /// <summary>
-    /// Creates the database when missing and applies additive SQLite column upgrades
+    /// Creates the database when missing and applies additive SQLite upgrades
     /// (EnsureCreated does not alter existing schemas).
     /// </summary>
     public async Task EnsureDatabaseAsync(CancellationToken ct = default)
     {
         await Database.EnsureCreatedAsync(ct);
         await EnsureWorkItemStateColumnAsync(ct);
+        await EnsureCommentsTableAsync(ct);
     }
 
     private async Task EnsureWorkItemStateColumnAsync(CancellationToken ct)
@@ -71,6 +83,36 @@ public class HrdrDbContext(DbContextOptions<HrdrDbContext> options) : DbContext(
             await using var alter = connection.CreateCommand();
             alter.CommandText = """ALTER TABLE "WorkItems" ADD COLUMN "State" INTEGER NOT NULL DEFAULT 0""";
             await alter.ExecuteNonQueryAsync(ct);
+        }
+        finally
+        {
+            if (shouldClose)
+                await connection.CloseAsync();
+        }
+    }
+
+    private async Task EnsureCommentsTableAsync(CancellationToken ct)
+    {
+        var connection = Database.GetDbConnection();
+        var shouldClose = connection.State != System.Data.ConnectionState.Open;
+        if (shouldClose)
+            await connection.OpenAsync(ct);
+
+        try
+        {
+            await using var create = connection.CreateCommand();
+            create.CommandText = """
+                CREATE TABLE IF NOT EXISTS "Comments" (
+                    "Id" INTEGER NOT NULL CONSTRAINT "PK_Comments" PRIMARY KEY AUTOINCREMENT,
+                    "WorkItemId" INTEGER NOT NULL,
+                    "Body" TEXT NOT NULL,
+                    "CreatedAt" TEXT NOT NULL,
+                    "UpdatedAt" TEXT NOT NULL,
+                    CONSTRAINT "FK_Comments_WorkItems_WorkItemId" FOREIGN KEY ("WorkItemId") REFERENCES "WorkItems" ("Id") ON DELETE CASCADE
+                );
+                CREATE INDEX IF NOT EXISTS "IX_Comments_WorkItemId" ON "Comments" ("WorkItemId");
+                """;
+            await create.ExecuteNonQueryAsync(ct);
         }
         finally
         {
