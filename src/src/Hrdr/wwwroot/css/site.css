@@ -168,6 +168,10 @@ h2 {
   max-width: 36rem;
 }
 
+.form-panel .field textarea {
+  min-height: 21rem;
+}
+
 .field input:focus,
 .field select:focus,
 .field textarea:focus {

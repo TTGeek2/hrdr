@@ -30,11 +30,11 @@
 {
     @if (Model.ProjectId is null or <= 0)
     {
-        <p class="note">Select a project to enable drag-and-drop item reordering. Column headers can be dragged to change board order.</p>
+        <p class="note">Drag items between columns to change state. Select a project to also reorder items within columns. Column headers can be dragged to change board order.</p>
     }
     else if (Model.Type is not null)
     {
-        <p class="note">Clear the type filter to reorder the full project list.</p>
+        <p class="note">Drag items between columns to change state. Clear the type filter to reorder the full project list.</p>
     }
 }
 
@@ -50,7 +50,7 @@
      }>
     @foreach (var column in Model.Columns)
     {
-        <section class="kanban-column" data-state="@column.State">
+        <section class="kanban-column" data-state="@column.State.ToDisplayString()">
             <header class="kanban-column-header" title="Drag to reorder columns">
                 <button type="button"
                         class="kanban-collapse-toggle"
@@ -62,15 +62,12 @@
                 <h2>@column.State.ToDisplayString()</h2>
                 <span class="kanban-count">@column.Items.Count</span>
             </header>
-            <ul class="kanban-cards @(Model.CanReorder ? "sortable" : null)">
+            <ul class="kanban-cards sortable">
                 @foreach (var item in column.Items)
                 {
                     <li class="kanban-card" data-id="@item.Id">
                         <p class="item-title">
-                            @if (Model.CanReorder)
-                            {
-                                <span class="drag-hint" aria-hidden="true">⋮⋮</span>
-                            }
+                            <span class="drag-hint" aria-hidden="true">⋮⋮</span>
                             <span class="item-id">#@item.Id</span>
                             @item.Title
                         </p>
@@ -211,57 +208,122 @@
             });
         })();
     </script>
-    @if (Model.CanReorder)
-    {
-        <script>
-            (function () {
-                const board = document.querySelector('.kanban-board');
-                if (!board) return;
-                const projectId = board.dataset.projectId;
-                if (!projectId) return;
+    <script>
+        (function () {
+            const board = document.querySelector('.kanban-board');
+            if (!board) return;
+            const projectId = board.dataset.projectId;
+            const canReorder = Boolean(projectId);
 
-                function readOrder() {
-                    return (board.dataset.orderedIds || '')
-                        .split(',')
-                        .filter(Boolean)
-                        .map(id => parseInt(id, 10));
-                }
+            function readOrder() {
+                return (board.dataset.orderedIds || '')
+                    .split(',')
+                    .filter(Boolean)
+                    .map(id => parseInt(id, 10));
+            }
 
-                function writeOrder(ids) {
-                    board.dataset.orderedIds = ids.join(',');
-                }
+            function writeOrder(ids) {
+                board.dataset.orderedIds = ids.join(',');
+            }
 
-                async function persistOrder(orderedIds) {
-                    const res = await fetch('/api/projects/' + projectId + '/items/reorder', {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ orderedIds })
-                    });
-                    if (!res.ok) {
-                        alert('Reorder failed. Reloading…');
-                        location.reload();
-                    }
-                }
+            function updateColumnCount(column) {
+                if (!column) return;
+                const countEl = column.querySelector('.kanban-count');
+                if (!countEl) return;
+                countEl.textContent = String(column.querySelectorAll('.kanban-cards > li[data-id]').length);
+            }
 
-                board.querySelectorAll('.kanban-cards.sortable').forEach(list => {
-                    Sortable.create(list, {
-                        animation: 150,
-                        ghostClass: 'sortable-ghost',
-                        chosenClass: 'sortable-chosen',
-                        onEnd: async function () {
-                            const newColumnIds = Array.from(list.querySelectorAll('li[data-id]'))
-                                .map(li => parseInt(li.dataset.id, 10));
-                            const columnSet = new Set(newColumnIds);
-                            const fullOrder = readOrder();
-                            let i = 0;
-                            const merged = fullOrder.map(id =>
-                                columnSet.has(id) ? newColumnIds[i++] : id);
-                            writeOrder(merged);
-                            await persistOrder(merged);
-                        }
-                    });
+            async function persistState(itemId, state) {
+                const res = await fetch('/api/items/' + itemId, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ state })
                 });
-            })();
-        </script>
-    }
+                if (!res.ok) {
+                    alert('State update failed. Reloading…');
+                    location.reload();
+                    return false;
+                }
+                return true;
+            }
+
+            async function persistOrder(orderedIds) {
+                const res = await fetch('/api/projects/' + projectId + '/items/reorder', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ orderedIds })
+                });
+                if (!res.ok) {
+                    alert('Reorder failed. Reloading…');
+                    location.reload();
+                }
+            }
+
+            function mergeOrderAfterMove(evt) {
+                const fullOrder = readOrder();
+                if (evt.from === evt.to) {
+                    const newColumnIds = Array.from(evt.to.querySelectorAll('li[data-id]'))
+                        .map(li => parseInt(li.dataset.id, 10));
+                    const columnSet = new Set(newColumnIds);
+                    let i = 0;
+                    return fullOrder.map(id => columnSet.has(id) ? newColumnIds[i++] : id);
+                }
+
+                const itemId = parseInt(evt.item.dataset.id, 10);
+                const toIds = Array.from(evt.to.querySelectorAll('li[data-id]'))
+                    .map(li => parseInt(li.dataset.id, 10));
+                const without = fullOrder.filter(id => id !== itemId);
+                const idxInTo = toIds.indexOf(itemId);
+                let insertAt;
+                if (idxInTo <= 0) {
+                    if (toIds.length <= 1) {
+                        insertAt = without.length;
+                    } else {
+                        const nextId = toIds[1];
+                        insertAt = without.indexOf(nextId);
+                        if (insertAt < 0) insertAt = without.length;
+                    }
+                } else {
+                    const prevId = toIds[idxInTo - 1];
+                    insertAt = without.indexOf(prevId) + 1;
+                    if (insertAt <= 0) insertAt = without.length;
+                }
+                without.splice(insertAt, 0, itemId);
+                return without;
+            }
+
+            board.querySelectorAll('.kanban-cards.sortable').forEach(list => {
+                Sortable.create(list, {
+                    group: 'kanban-cards',
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    chosenClass: 'sortable-chosen',
+                    filter: 'a, button, input, form',
+                    preventOnFilter: false,
+                    onEnd: async function (evt) {
+                        if (evt.from === evt.to && evt.oldIndex === evt.newIndex) return;
+
+                        const itemId = parseInt(evt.item.dataset.id, 10);
+                        const fromColumn = evt.from.closest('.kanban-column');
+                        const toColumn = evt.to.closest('.kanban-column');
+                        const oldState = fromColumn && fromColumn.getAttribute('data-state');
+                        const newState = toColumn && toColumn.getAttribute('data-state');
+
+                        if (oldState !== newState && newState) {
+                            const ok = await persistState(itemId, newState);
+                            if (!ok) return;
+                            updateColumnCount(fromColumn);
+                            updateColumnCount(toColumn);
+                        }
+
+                        if (!canReorder) return;
+
+                        const merged = mergeOrderAfterMove(evt);
+                        writeOrder(merged);
+                        await persistOrder(merged);
+                    }
+                });
+            });
+        })();
+    </script>
 }
