@@ -1794,3 +1794,793 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
       WHERE "w"."ProjectId" = @projectId
       ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://0.0.0.0:5080
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/ttgeek/Projects/hrdr/publish
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_WorkItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "WorkItems" AS "w"
+          WHERE "w"."Id" = @request_WorkItemId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 12), @p1='?' (DbType = DateTimeOffset), @p2='?' (DbType = DateTimeOffset), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Comments" ("Body", "CreatedAt", "UpdatedAt", "WorkItemId")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Projects" AS "p"
+          WHERE "p"."Id" = @projectId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      WHERE "w"."ProjectId" = @projectId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://0.0.0.0:5080
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/ttgeek/Projects/hrdr/publish
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Projects" AS "p"
+          WHERE "p"."Id" = @projectId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      WHERE "w"."ProjectId" = @projectId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Projects" AS "p"
+          WHERE "p"."Id" = @projectId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      WHERE "w"."ProjectId" = @projectId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "SortOrder" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "SortOrder" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 16.9958ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 14.5305ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 14.5312ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.2453ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.5956ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4609ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.2098ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.5474ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3745ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1802ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3797ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3109ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.2009ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3123ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2478ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1936ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3904ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2799ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1664ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3422ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2498ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1447ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.5333ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2905ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1175ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4505ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4445ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1177ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2332ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2045ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1346ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2579ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2993ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1628ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2291ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2212ms.
