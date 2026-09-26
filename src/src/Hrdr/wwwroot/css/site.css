@@ -450,11 +450,20 @@ h2 {
   margin-bottom: 0.65rem;
   padding: 0.15rem;
   border-radius: 3px;
-  cursor: pointer;
+  cursor: grab;
 }
 
 .kanban-column-header:hover {
   background: color-mix(in srgb, var(--surface) 70%, var(--accent) 8%);
+}
+
+.kanban-column.sortable-chosen > .kanban-column-header {
+  cursor: grabbing;
+}
+
+.kanban-column.sortable-ghost {
+  opacity: 0.45;
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
 }
 
 .kanban-column-header h2 {

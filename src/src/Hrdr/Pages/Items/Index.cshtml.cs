@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Hrdr.Pages.Items;
 
-public class IndexModel(WorkItemService workItems, ProjectService projects) : PageModel
+public class IndexModel(WorkItemService workItems, ProjectService projects, BoardColumnService boardColumns) : PageModel
 {
     [BindProperty(SupportsGet = true)]
     public int? ProjectId { get; set; }
@@ -39,7 +39,8 @@ public class IndexModel(WorkItemService workItems, ProjectService projects) : Pa
         Items = await workItems.ListAsync(ProjectId, Type, ct);
 
         var byState = Items.GroupBy(i => i.State).ToDictionary(g => g.Key, g => (IReadOnlyList<WorkItemDto>)g.ToList());
-        Columns = WorkItemStateHelpers.BoardOrder
+        var columnOrder = await boardColumns.GetOrderAsync(ct);
+        Columns = columnOrder
             .Select(state => new KanbanColumn(
                 state,
                 byState.TryGetValue(state, out var list) ? list : []))

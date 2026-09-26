@@ -128,6 +128,35 @@ public static class ApiEndpoints
             }
         });
 
+        var board = api.MapGroup("/board");
+        board.MapGet("/column-order", async (BoardColumnService svc, CancellationToken ct) =>
+        {
+            var order = await svc.GetOrderAsync(ct);
+            return Results.Ok(new
+            {
+                orderedStates = order.Select(s => s.ToDisplayString()).ToArray()
+            });
+        });
+
+        board.MapPut("/column-order", async (
+            ReorderBoardColumnsRequest body,
+            BoardColumnService svc,
+            CancellationToken ct) =>
+        {
+            try
+            {
+                var order = await svc.ReorderAsync(body, ct);
+                return Results.Ok(new
+                {
+                    orderedStates = order.Select(s => s.ToDisplayString()).ToArray()
+                });
+            }
+            catch (ArgumentException ex)
+            {
+                return Results.BadRequest(new { error = ex.Message });
+            }
+        });
+
         var comments = api.MapGroup("/comments");
         comments.MapGet("/{id:int}", async (int id, CommentService svc, CancellationToken ct) =>
         {

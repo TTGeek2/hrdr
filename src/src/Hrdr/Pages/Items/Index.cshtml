@@ -30,7 +30,7 @@
 {
     @if (Model.ProjectId is null or <= 0)
     {
-        <p class="note">Select a project to enable drag-and-drop reordering.</p>
+        <p class="note">Select a project to enable drag-and-drop item reordering. Column headers can be dragged to change board order.</p>
     }
     else if (Model.Type is not null)
     {
@@ -51,7 +51,7 @@
     @foreach (var column in Model.Columns)
     {
         <section class="kanban-column" data-state="@column.State">
-            <header class="kanban-column-header">
+            <header class="kanban-column-header" title="Drag to reorder columns">
                 <button type="button"
                         class="kanban-collapse-toggle"
                         aria-expanded="true"
@@ -103,11 +103,14 @@
 </div>
 
 @section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
     <script>
         (function () {
             var storageKey = 'hrdr.kanban.collapsedColumns';
             var board = document.querySelector('.kanban-board');
             if (!board) return;
+
+            var suppressCollapseClick = false;
 
             function readCollapsed() {
                 try {
@@ -167,6 +170,7 @@
             });
 
             board.addEventListener('click', function (event) {
+                if (suppressCollapseClick) return;
                 var header = event.target.closest('.kanban-column-header');
                 if (!header || !board.contains(header)) return;
                 var column = header.closest('.kanban-column');
@@ -174,11 +178,41 @@
                 event.preventDefault();
                 setCollapsed(column, !column.classList.contains('is-collapsed'));
             });
+
+            async function persistColumnOrder(orderedStates) {
+                var res = await fetch('/api/board/column-order', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ orderedStates: orderedStates })
+                });
+                if (!res.ok) {
+                    alert('Column reorder failed. Reloading…');
+                    location.reload();
+                }
+            }
+
+            Sortable.create(board, {
+                animation: 150,
+                draggable: '.kanban-column',
+                handle: '.kanban-column-header',
+                direction: 'horizontal',
+                ghostClass: 'sortable-ghost',
+                chosenClass: 'sortable-chosen',
+                distance: 8,
+                onEnd: async function (evt) {
+                    if (evt.oldIndex === evt.newIndex) return;
+                    suppressCollapseClick = true;
+                    setTimeout(function () { suppressCollapseClick = false; }, 0);
+                    var orderedStates = Array.from(board.querySelectorAll('.kanban-column[data-state]'))
+                        .map(function (col) { return col.getAttribute('data-state'); })
+                        .filter(Boolean);
+                    await persistColumnOrder(orderedStates);
+                }
+            });
         })();
     </script>
     @if (Model.CanReorder)
     {
-        <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
         <script>
             (function () {
                 const board = document.querySelector('.kanban-board');

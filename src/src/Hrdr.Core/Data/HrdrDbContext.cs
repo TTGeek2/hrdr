@@ -8,6 +8,7 @@ public class HrdrDbContext(DbContextOptions<HrdrDbContext> options) : DbContext(
     public DbSet<Project> Projects => Set<Project>();
     public DbSet<WorkItem> WorkItems => Set<WorkItem>();
     public DbSet<Comment> Comments => Set<Comment>();
+    public DbSet<AppSetting> AppSettings => Set<AppSetting>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -40,6 +41,13 @@ public class HrdrDbContext(DbContextOptions<HrdrDbContext> options) : DbContext(
                 .HasForeignKey(c => c.WorkItemId)
                 .OnDelete(DeleteBehavior.Cascade);
         });
+
+        modelBuilder.Entity<AppSetting>(e =>
+        {
+            e.HasKey(s => s.Key);
+            e.Property(s => s.Key).HasMaxLength(100).IsRequired();
+            e.Property(s => s.Value).HasMaxLength(2000).IsRequired();
+        });
     }
 
     /// <summary>
@@ -51,6 +59,7 @@ public class HrdrDbContext(DbContextOptions<HrdrDbContext> options) : DbContext(
         await Database.EnsureCreatedAsync(ct);
         await EnsureWorkItemStateColumnAsync(ct);
         await EnsureCommentsTableAsync(ct);
+        await EnsureAppSettingsTableAsync(ct);
     }
 
     private async Task EnsureWorkItemStateColumnAsync(CancellationToken ct)
@@ -111,6 +120,31 @@ public class HrdrDbContext(DbContextOptions<HrdrDbContext> options) : DbContext(
                     CONSTRAINT "FK_Comments_WorkItems_WorkItemId" FOREIGN KEY ("WorkItemId") REFERENCES "WorkItems" ("Id") ON DELETE CASCADE
                 );
                 CREATE INDEX IF NOT EXISTS "IX_Comments_WorkItemId" ON "Comments" ("WorkItemId");
+                """;
+            await create.ExecuteNonQueryAsync(ct);
+        }
+        finally
+        {
+            if (shouldClose)
+                await connection.CloseAsync();
+        }
+    }
+
+    private async Task EnsureAppSettingsTableAsync(CancellationToken ct)
+    {
+        var connection = Database.GetDbConnection();
+        var shouldClose = connection.State != System.Data.ConnectionState.Open;
+        if (shouldClose)
+            await connection.OpenAsync(ct);
+
+        try
+        {
+            await using var create = connection.CreateCommand();
+            create.CommandText = """
+                CREATE TABLE IF NOT EXISTS "AppSettings" (
+                    "Key" TEXT NOT NULL CONSTRAINT "PK_AppSettings" PRIMARY KEY,
+                    "Value" TEXT NOT NULL
+                );
                 """;
             await create.ExecuteNonQueryAsync(ct);
         }
