@@ -2584,3 +2584,2063 @@ info: ModelContextProtocol.Server.McpServer[570385771]
       Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
 info: ModelContextProtocol.Server.McpServer[1867955179]
       Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2212ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1834ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3079ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2894ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1514ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2905ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3182ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "get_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 63.5603ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "get_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 3.2039ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "get_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 1.912ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "get_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 1.7935ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "get_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 1.6636ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1704ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3201ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3056ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1366ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.245ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2617ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "get_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 1.6937ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "list_comments" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 4.975ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_WorkItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "WorkItems" AS "w"
+          WHERE "w"."Id" = @request_WorkItemId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 152), @p1='?' (DbType = DateTimeOffset), @p2='?' (DbType = DateTimeOffset), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Comments" ("Body", "CreatedAt", "UpdatedAt", "WorkItemId")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "create_comment" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 94.4507ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_ProjectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Projects" AS "p"
+          WHERE "p"."Id" = @request_ProjectId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_ProjectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT MAX("w"."SortOrder")
+      FROM "WorkItems" AS "w"
+      WHERE "w"."ProjectId" = @request_ProjectId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTimeOffset), @p1='?' (Size = 129), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Size = 25), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "WorkItems" ("CreatedAt", "Description", "ProjectId", "SortOrder", "Title", "Type", "UpdatedAt")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id", "State";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      WHERE "p"."Id" = @p
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "update_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 17.5304ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_WorkItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "WorkItems" AS "w"
+          WHERE "w"."Id" = @request_WorkItemId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 285), @p1='?' (DbType = DateTimeOffset), @p2='?' (DbType = DateTimeOffset), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Comments" ("Body", "CreatedAt", "UpdatedAt", "WorkItemId")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "create_comment" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 13.1502ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Projects" AS "p"
+          WHERE "p"."Id" = @projectId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      WHERE "w"."ProjectId" = @projectId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "UpdatedAt" = @p0
+      WHERE "Id" = @p1
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "get_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 3.6541ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "list_comments" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 2.1495ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "list_items" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 3.5856ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "list_projects" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 4.2216ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "get_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 1.7385ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "list_comments" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 1.4192ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "update_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 13.272ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_WorkItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "WorkItems" AS "w"
+          WHERE "w"."Id" = @request_WorkItemId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 173), @p1='?' (DbType = DateTimeOffset), @p2='?' (DbType = DateTimeOffset), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Comments" ("Body", "CreatedAt", "UpdatedAt", "WorkItemId")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "create_comment" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 11.8936ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_ProjectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Projects" AS "p"
+          WHERE "p"."Id" = @request_ProjectId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_ProjectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT MAX("w"."SortOrder")
+      FROM "WorkItems" AS "w"
+      WHERE "w"."ProjectId" = @request_ProjectId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTimeOffset), @p1='?' (Size = 9), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Size = 36), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "WorkItems" ("CreatedAt", "Description", "ProjectId", "SortOrder", "Title", "Type", "UpdatedAt")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id", "State";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      WHERE "p"."Id" = @p
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "WorkItems"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "update_item" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 10.82ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler called.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_WorkItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "WorkItems" AS "w"
+          WHERE "w"."Id" = @request_WorkItemId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 218), @p1='?' (DbType = DateTimeOffset), @p2='?' (DbType = DateTimeOffset), @p3='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Comments" ("Body", "CreatedAt", "UpdatedAt", "WorkItemId")
+      VALUES (@p0, @p1, @p2, @p3)
+      RETURNING "Id";
+info: ModelContextProtocol.Server.McpServer[2065726448]
+      "create_comment" completed. IsError = False.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/call' request handler completed in 3.5516ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_ProjectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Projects" AS "p"
+          WHERE "p"."Id" = @request_ProjectId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_ProjectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT MAX("w"."SortOrder")
+      FROM "WorkItems" AS "w"
+      WHERE "w"."ProjectId" = @request_ProjectId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTimeOffset), @p1='?' (Size = 30), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Size = 12), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "WorkItems" ("CreatedAt", "Description", "ProjectId", "SortOrder", "Title", "Type", "UpdatedAt")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id", "State";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      WHERE "p"."Id" = @p
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "WorkItems"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_ProjectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Projects" AS "p"
+          WHERE "p"."Id" = @request_ProjectId)
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@request_ProjectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT MAX("w"."SortOrder")
+      FROM "WorkItems" AS "w"
+      WHERE "w"."ProjectId" = @request_ProjectId
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTimeOffset), @p1='?' (Size = 21), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (Size = 10), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "WorkItems" ("CreatedAt", "Description", "ProjectId", "SortOrder", "Title", "Type", "UpdatedAt")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id", "State";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      WHERE "p"."Id" = @p
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://0.0.0.0:5080
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/ttgeek/Projects/hrdr/publish
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Key", "a"."Value"
+      FROM "AppSettings" AS "a"
+      WHERE "a"."Key" = 'BoardColumnOrder'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTimeOffset)], CommandType='Text', CommandTimeout='30']
+      UPDATE "WorkItems" SET "State" = @p0, "UpdatedAt" = @p1
+      WHERE "Id" = @p2
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "WorkItems"
+      WHERE "Id" = @p0
+      RETURNING 1;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Key", "a"."Value"
+      FROM "AppSettings" AS "a"
+      WHERE "a"."Key" = 'BoardColumnOrder'
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 18.4846ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 18.486ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 12.9728ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.7464ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.967ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.8827ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.2022ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3957ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.374ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.2398ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.5092ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.5355ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1909ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3461ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2695ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1554ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2827ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.242ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.3117ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4572ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2954ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.2386ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3845ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3811ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1878ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3127ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.293ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1511ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4085ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2646ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.4254ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.5908ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 2.3445ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1793ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2942ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2511ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1971ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3074ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2909ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.106ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2483ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2222ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1241ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.134ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2605ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2927ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2641ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2175ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.138ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2978ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2654ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1128ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4362ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.276ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.105ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2358ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2414ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1093ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2391ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1878ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1374ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2655ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.399ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1259ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2171ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.203ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0658ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2192ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1873ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0805ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1958ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1916ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0894ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1932ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1742ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0962ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1924ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1667ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.084ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2018ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4349ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1137ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2362ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.3508ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0904ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2145ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2558ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1027ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.233ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.221ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0991ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2093ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.257ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1321ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1914ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2089ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0802ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4769ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2296ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1042ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2319ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1975ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0913ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1926ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1768ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.079ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1964ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1691ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1159ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2071ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1793ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0894ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2149ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1953ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0824ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1629ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1992ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0909ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2211ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1566ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0713ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2044ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2078ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0773ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2078ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1474ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0868ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1706ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1312ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0724ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1752ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1177ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0645ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2096ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.18ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0781ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1945ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1375ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0897ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1747ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1891ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0746ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1468ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2003ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0841ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.167ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1383ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.071ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2146ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1689ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0805ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1993ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.205ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0726ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1951ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1749ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0787ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2021ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1788ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0875ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1974ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1532ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1025ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2238ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0911ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2096ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0951ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1986ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1107ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.211ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0749ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1958ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0758ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.208ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Key", "a"."Value"
+      FROM "AppSettings" AS "a"
+      WHERE "a"."Key" = 'BoardColumnOrder'
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0737ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.5003ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1041ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2593ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0614ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1651ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0583ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1443ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.096ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1557ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0658ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.164ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0658ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1621ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1093ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0639ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1745ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2296ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0639ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0695ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4579ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0834ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2054ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0708ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1941ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (cursor-vscode 1.0.0) method 'initialize' request handler completed in 0.2139ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2215ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0986ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0687ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2017ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0748ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2149ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0655ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1821ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0715ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0772ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2577ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0995ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2143ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0664ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1979ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Key", "a"."Value"
+      FROM "AppSettings" AS "a"
+      WHERE "a"."Key" = 'BoardColumnOrder'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Key", "a"."Value"
+      FROM "AppSettings" AS "a"
+      WHERE "a"."Key" = 'BoardColumnOrder'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@id='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."Id" = @id
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@workItemId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "c"."Id", "c"."Body", "c"."CreatedAt", "c"."UpdatedAt", "c"."WorkItemId"
+      FROM "Comments" AS "c"
+      WHERE "c"."WorkItemId" = @workItemId
+      ORDER BY "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@projectId='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      WHERE "w"."ProjectId" = @projectId
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Key", "a"."Value"
+      FROM "AppSettings" AS "a"
+      WHERE "a"."Key" = 'BoardColumnOrder'
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0724ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2076ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.168ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0922ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2076ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.1707ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.4767ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.2091ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.0835ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.206ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://0.0.0.0:5080
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/ttgeek/Projects/hrdr/publish
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 19.1782ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 19.2205ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.321ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.2257ms.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 13.1618ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1743ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.6002ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1713ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.7067ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.2363ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.145ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.5398ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.454ms.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Slug", "p"."CreatedAt", "p"."UpdatedAt"
+      FROM "Projects" AS "p"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "w"."Id", "w"."CreatedAt", "w"."Description", "w"."ProjectId", "w"."SortOrder", "w"."State", "w"."Title", "w"."Type", "w"."UpdatedAt", "p"."Id", "p"."CreatedAt", "p"."Name", "p"."Slug", "p"."UpdatedAt"
+      FROM "WorkItems" AS "w"
+      INNER JOIN "Projects" AS "p" ON "w"."ProjectId" = "p"."Id"
+      ORDER BY "w"."ProjectId", "w"."SortOrder", "w"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "a"."Key", "a"."Value"
+      FROM "AppSettings" AS "a"
+      WHERE "a"."Key" = 'BoardColumnOrder'
+      LIMIT 1
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.1771ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4783ms.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'initialize' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0), Client (Cursor 1.0.0) method 'initialize' request handler completed in 0.2242ms.
+info: ModelContextProtocol.Server.McpServer[2103773711]
+      Server (Hrdr 1.0.0.0) message processing canceled.
+info: ModelContextProtocol.Server.McpServer[570385771]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler called.
+info: ModelContextProtocol.Server.McpServer[1867955179]
+      Server (Hrdr 1.0.0.0) method 'tools/list' request handler completed in 0.4972ms.
