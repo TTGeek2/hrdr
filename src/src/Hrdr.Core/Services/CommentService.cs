@@ -13,7 +13,7 @@ public record CommentDto(
 
 public record CreateCommentRequest(int WorkItemId, string Body);
 
-public class CommentService(HrdrDbContext db)
+public class CommentService(HrdrDbContext db, IBoardChangeNotifier changes)
 {
     public async Task<IReadOnlyList<CommentDto>> ListAsync(int workItemId, CancellationToken ct = default)
     {
@@ -53,15 +53,26 @@ public class CommentService(HrdrDbContext db)
 
         db.Comments.Add(comment);
         await db.SaveChangesAsync(ct);
-        return ToDto(comment);
+        var dto = ToDto(comment);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.CommentCreated,
+            WorkItemId: dto.WorkItemId,
+            CommentId: dto.Id,
+            Comment: dto), ct);
+        return dto;
     }
 
     public async Task<bool> DeleteAsync(int id, CancellationToken ct = default)
     {
         var comment = await db.Comments.FirstOrDefaultAsync(c => c.Id == id, ct);
         if (comment is null) return false;
+        var workItemId = comment.WorkItemId;
         db.Comments.Remove(comment);
         await db.SaveChangesAsync(ct);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.CommentDeleted,
+            WorkItemId: workItemId,
+            CommentId: id), ct);
         return true;
     }
 

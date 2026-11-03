@@ -20,7 +20,7 @@ public class BoardColumnServiceTests : IAsyncLifetime
             .UseSqlite(_connection)
             .Options;
         _db = new HrdrDbContext(options);
-        _board = new BoardColumnService(_db);
+        _board = new BoardColumnService(_db, NullBoardChangeNotifier.Instance);
     }
 
     public async Task InitializeAsync() => await _db.EnsureDatabaseAsync();

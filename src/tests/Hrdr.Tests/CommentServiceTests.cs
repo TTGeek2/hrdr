@@ -22,9 +22,9 @@ public class CommentServiceTests : IAsyncLifetime
             .UseSqlite(_connection)
             .Options;
         _db = new HrdrDbContext(options);
-        _projects = new ProjectService(_db);
-        _items = new WorkItemService(_db);
-        _comments = new CommentService(_db);
+        _projects = new ProjectService(_db, NullBoardChangeNotifier.Instance);
+        _items = new WorkItemService(_db, NullBoardChangeNotifier.Instance);
+        _comments = new CommentService(_db, NullBoardChangeNotifier.Instance);
     }
 
     public async Task InitializeAsync() => await _db.EnsureDatabaseAsync();

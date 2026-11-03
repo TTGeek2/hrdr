@@ -10,7 +10,7 @@ public record CreateProjectRequest(string Name, string? Slug = null);
 
 public record UpdateProjectRequest(string Name, string? Slug = null);
 
-public class ProjectService(HrdrDbContext db)
+public class ProjectService(HrdrDbContext db, IBoardChangeNotifier changes)
 {
     public async Task<IReadOnlyList<ProjectDto>> ListAsync(CancellationToken ct = default)
     {
@@ -54,7 +54,12 @@ public class ProjectService(HrdrDbContext db)
 
         db.Projects.Add(project);
         await db.SaveChangesAsync(ct);
-        return ToDto(project);
+        var dto = ToDto(project);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.ProjectCreated,
+            ProjectId: dto.Id,
+            Project: dto), ct);
+        return dto;
     }
 
     public async Task<ProjectDto?> UpdateAsync(int id, UpdateProjectRequest request, CancellationToken ct = default)
@@ -78,7 +83,12 @@ public class ProjectService(HrdrDbContext db)
 
         project.UpdatedAt = DateTimeOffset.UtcNow;
         await db.SaveChangesAsync(ct);
-        return ToDto(project);
+        var dto = ToDto(project);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.ProjectUpdated,
+            ProjectId: dto.Id,
+            Project: dto), ct);
+        return dto;
     }
 
     public async Task<bool> DeleteAsync(int id, CancellationToken ct = default)
@@ -87,6 +97,9 @@ public class ProjectService(HrdrDbContext db)
         if (project is null) return false;
         db.Projects.Remove(project);
         await db.SaveChangesAsync(ct);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.ProjectDeleted,
+            ProjectId: id), ct);
         return true;
     }
 

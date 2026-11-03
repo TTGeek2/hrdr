@@ -39,7 +39,7 @@
     </div>
 </form>
 
-<section class="comments-section form-panel">
+<section class="comments-section form-panel" data-work-item-id="@Model.Id">
     <h2>Comments</h2>
 
     @if (!string.IsNullOrEmpty(Model.CommentErrorMessage))
@@ -56,7 +56,7 @@
         <ul class="comment-list">
             @foreach (var comment in Model.Comments)
             {
-                <li>
+                <li data-comment-id="@comment.Id">
                     <div class="comment-main">
                         <p class="comment-body">@comment.Body</p>
                         <p class="item-meta">@comment.CreatedAt.ToLocalTime().ToString("g")</p>
