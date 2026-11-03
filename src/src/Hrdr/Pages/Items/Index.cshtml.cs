@@ -17,13 +17,33 @@ public class IndexModel(WorkItemService workItems, ProjectService projects, Boar
     public IReadOnlyList<WorkItemDto> Items { get; private set; } = [];
     public IReadOnlyList<KanbanColumn> Columns { get; private set; } = [];
     public SelectList ProjectOptions { get; private set; } = null!;
+    public const string BoardHelpCookieName = "hrdr.board-help-dismissed";
+
     public bool CanReorder => ProjectId is > 0 && Type is null;
+
+    public bool ShowBoardHelp =>
+        !string.Equals(Request.Cookies[BoardHelpCookieName], "1", StringComparison.Ordinal);
 
     public record KanbanColumn(WorkItemState State, IReadOnlyList<WorkItemDto> Items);
 
     public async Task OnGetAsync(CancellationToken ct)
     {
         await LoadAsync(ct);
+    }
+
+    public IActionResult OnPostDismissBoardHelp()
+    {
+        Response.Cookies.Append(BoardHelpCookieName, "1", new CookieOptions
+        {
+            HttpOnly = true,
+            IsEssential = true,
+            SameSite = SameSiteMode.Lax,
+            Secure = Request.IsHttps,
+            MaxAge = TimeSpan.FromDays(400),
+            Path = "/"
+        });
+
+        return RedirectToPage(new { ProjectId, Type });
     }
 
     public async Task<IActionResult> OnPostDeleteAsync(int id, CancellationToken ct)

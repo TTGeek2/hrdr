@@ -28,9 +28,14 @@
 
 @if (!Model.CanReorder)
 {
-    @if (Model.ProjectId is null or <= 0)
+    @if (Model.ProjectId is null or <= 0 && Model.ShowBoardHelp)
     {
-        <p class="note">Drag items between columns to change state. Select a project to also reorder items within columns. Column headers can be dragged to change board order.</p>
+        <div class="note note-dismissible">
+            <p>Drag items between columns to change state. Select a project to also reorder items within columns. Column headers can be dragged to change board order.</p>
+            <form method="post" asp-page-handler="DismissBoardHelp" asp-route-projectId="@Model.ProjectId" asp-route-type="@Model.Type" class="inline-form">
+                <button type="submit" class="btn btn-secondary btn-sm" aria-label="Dismiss board help">Dismiss</button>
+            </form>
+        </div>
     }
     else if (Model.Type is not null)
     {
