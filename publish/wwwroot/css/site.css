@@ -48,12 +48,17 @@ a:hover {
 
 .site-header {
   display: flex;
-  align-items: baseline;
-  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
   padding: 1.25rem 1.75rem;
   border-bottom: 1px solid var(--border);
   background: color-mix(in srgb, var(--surface) 85%, transparent);
   backdrop-filter: blur(6px);
+}
+
+.start-agent-form {
+  margin-left: auto;
 }
 
 .brand {
@@ -250,6 +255,21 @@ h2 {
   margin-bottom: 1rem;
   border-radius: 3px;
   font-size: 0.9rem;
+}
+
+.alert-success {
+  color: var(--accent-hover);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.field textarea.agent-message {
+  min-height: 12rem;
+  max-width: none;
 }
 
 .item-list,

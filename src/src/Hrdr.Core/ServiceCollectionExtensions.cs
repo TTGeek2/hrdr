@@ -16,6 +16,9 @@ public static class ServiceCollectionExtensions
         services.AddScoped<WorkItemService>();
         services.AddScoped<CommentService>();
         services.AddScoped<BoardColumnService>();
+        services.AddScoped<AgentLaunchSettingsService>();
+        services.AddScoped<HerdrAgentLauncher>();
+        services.AddSingleton<IHerdrCommandRunner, ProcessHerdrCommandRunner>();
         return services;
     }
 }

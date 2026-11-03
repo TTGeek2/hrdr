@@ -46,7 +46,7 @@ public class HrdrDbContext(DbContextOptions<HrdrDbContext> options) : DbContext(
         {
             e.HasKey(s => s.Key);
             e.Property(s => s.Key).HasMaxLength(100).IsRequired();
-            e.Property(s => s.Value).HasMaxLength(2000).IsRequired();
+            e.Property(s => s.Value).HasMaxLength(8000).IsRequired();
         });
     }
 

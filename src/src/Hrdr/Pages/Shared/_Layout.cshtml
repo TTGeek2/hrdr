@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewData["Title"] — Hrdr</title>
     <link rel="icon" href="~/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="~/css/site.css?v=20260926-column-order" />
+    <link rel="stylesheet" href="~/css/site.css?v=20261102-herdr-agent" />
 </head>
 <body>
     <header class="site-header">
@@ -16,9 +16,22 @@
         <nav class="site-nav">
             <a asp-page="/Items/Index">Items</a>
             <a asp-page="/Projects/Index">Projects</a>
+            <a asp-page="/Settings/Index">Settings</a>
         </nav>
+        <form method="post" asp-page="/Settings/Index" asp-page-handler="Start" class="start-agent-form"
+              onsubmit="var b=this.querySelector('button'); if(b){b.disabled=true; b.textContent='Starting…';}">
+            <button type="submit" class="btn btn-sm" title="Send the saved message to the named Herdr pane. This can take up to a minute the first time.">Start agent</button>
+        </form>
     </header>
     <main class="site-main">
+        @if (TempData["Status"] is string status)
+        {
+            <p class="alert-success">@status</p>
+        }
+        @if (TempData["Error"] is string error)
+        {
+            <p class="alert-error">@error</p>
+        }
         @RenderBody()
     </main>
     @await RenderSectionAsync("Scripts", required: false)

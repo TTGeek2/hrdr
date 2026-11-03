@@ -1,0 +1,39 @@
+@page
+@model Hrdr.Pages.Settings.IndexModel
+@using Hrdr.Core.Services
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<h1>Settings</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p class="alert-error">@Model.ErrorMessage</p>
+}
+
+<p class="note">Start agent sends the message to a pane with this name in the default Herdr session. When that pane is already open, the message goes there. Otherwise Hrdr opens one pane with that name and sends the message to it. Save before using the header button, or use Start agent on this page to send the text currently in the box.</p>
+
+<form method="post" class="form-panel" onsubmit="var b=event.submitter; if(b && (b.getAttribute('formaction') || '').indexOf('handler=Start') >= 0){b.disabled=true; b.textContent='Starting…';}">
+    <div class="field">
+        <label asp-for="Message">Default agent message</label>
+        <textarea asp-for="Message" class="agent-message" maxlength="8000"></textarea>
+    </div>
+    <div class="field">
+        <label asp-for="Kind">Agent</label>
+        <select asp-for="Kind">
+            @foreach (var kind in AgentLaunchSettingsService.Kinds)
+            {
+                <option value="@kind">@kind</option>
+            }
+        </select>
+    </div>
+    <div class="field">
+        <label asp-for="PaneName">Pane name</label>
+        <input asp-for="PaneName" maxlength="64" required />
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn" asp-page-handler="Save">Save</button>
+        <button type="submit" class="btn btn-secondary" asp-page-handler="Start" title="Saves this message, then starts the agent. This can take up to a minute.">Start agent</button>
+    </div>
+</form>
