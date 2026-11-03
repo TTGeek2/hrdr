@@ -6,7 +6,7 @@ namespace Hrdr.Core.Services;
 
 public record ReorderBoardColumnsRequest(IReadOnlyList<string> OrderedStates);
 
-public class BoardColumnService(HrdrDbContext db)
+public class BoardColumnService(HrdrDbContext db, IBoardChangeNotifier changes)
 {
     public const string ColumnOrderKey = "BoardColumnOrder";
 
@@ -42,6 +42,9 @@ public class BoardColumnService(HrdrDbContext db)
         }
 
         await db.SaveChangesAsync(ct);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.BoardColumnsReordered,
+            OrderedStates: orderedStates.Select(s => s.ToDisplayString()).ToArray()), ct);
         return orderedStates;
     }
 

@@ -26,6 +26,8 @@
     </div>
 </form>
 
+@Html.AntiForgeryToken()
+
 @if (!Model.CanReorder)
 {
     @if (Model.ProjectId is null or <= 0 && Model.ShowBoardHelp)
@@ -70,21 +72,23 @@
             <ul class="kanban-cards sortable">
                 @foreach (var item in column.Items)
                 {
-                    <li class="kanban-card" data-id="@item.Id">
+                    <li class="kanban-card"
+                        data-id="@item.Id"
+                        data-project-id="@item.ProjectId"
+                        data-type="@item.Type"
+                        data-sort-order="@item.SortOrder"
+                        data-state="@item.State.ToDisplayString()">
                         <p class="item-title">
                             <span class="drag-hint" aria-hidden="true">⋮⋮</span>
                             <span class="item-id">#@item.Id</span>
-                            @item.Title
+                            <span class="item-title-text">@item.Title</span>
                         </p>
                         <div class="item-meta">
                             <span class="badge @(item.Type == WorkItemType.Bug ? "badge-bug" : "badge-feature")">@item.Type</span>
-                            @if (Model.ProjectId is null)
-                            {
-                                <span>@item.ProjectName</span>
-                            }
+                            <span class="item-project"@(Model.ProjectId is not null ? " hidden" : null)>@item.ProjectName</span>
                             @if (!string.IsNullOrWhiteSpace(item.Description))
                             {
-                                <span>@(item.Description.Length > 80 ? item.Description[..80] + "…" : item.Description)</span>
+                                <span class="item-desc">@(item.Description.Length > 80 ? item.Description[..80] + "…" : item.Description)</span>
                             }
                         </div>
                         <div class="actions">

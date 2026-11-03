@@ -28,7 +28,7 @@ else
     <ul class="project-list">
         @foreach (var project in Model.Projects)
         {
-            <li>
+            <li data-project-id="@project.Id">
                 <div class="item-main">
                     <div class="project-name">@project.Name</div>
                     @if (!string.IsNullOrEmpty(project.Slug))
@@ -44,7 +44,8 @@ else
                         <button type="submit" class="btn btn-secondary btn-sm">Rename</button>
                     </form>
                     <form method="post" asp-page-handler="Delete" class="inline-form"
-                          onsubmit="return confirm('Delete project “@project.Name” and all its items?');">
+                          data-confirm="Delete project “@project.Name” and all its items?"
+                          onsubmit="return confirm(this.dataset.confirm);">
                         <input type="hidden" name="id" value="@project.Id" />
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>

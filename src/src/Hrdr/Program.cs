@@ -2,6 +2,8 @@ using System.Text.Json.Serialization;
 using Hrdr.Api;
 using Hrdr.Core;
 using Hrdr.Core.Data;
+using Hrdr.Core.Services;
+using Hrdr.Realtime;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,9 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 });
 
 builder.Services.AddHrdrCore(connectionString);
+builder.Services.AddSignalR();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IBoardChangeNotifier, SignalRBoardChangeNotifier>();
 builder.Services.AddRazorPages();
 
 builder.Services.AddMcpServer()
@@ -43,6 +48,7 @@ using (var scope = app.Services.CreateScope())
 app.UseStaticFiles();
 app.MapHrdrApi();
 app.MapRazorPages();
+app.MapHub<HrdrHub>("/hubs/hrdr");
 app.MapMcp("/mcp");
 
 app.Run();

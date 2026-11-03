@@ -32,7 +32,7 @@ public record UpdateWorkItemRequest(
 
 public record ReorderWorkItemsRequest(IReadOnlyList<int> OrderedIds);
 
-public class WorkItemService(HrdrDbContext db)
+public class WorkItemService(HrdrDbContext db, IBoardChangeNotifier changes)
 {
     public async Task<IReadOnlyList<WorkItemDto>> ListAsync(
         int? projectId = null,
@@ -96,13 +96,21 @@ public class WorkItemService(HrdrDbContext db)
         await db.SaveChangesAsync(ct);
 
         await db.Entry(item).Reference(w => w.Project).LoadAsync(ct);
-        return ToDto(item);
+        var dto = ToDto(item);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.WorkItemCreated,
+            WorkItemId: dto.Id,
+            ProjectId: dto.ProjectId,
+            Item: dto), ct);
+        return dto;
     }
 
     public async Task<WorkItemDto?> UpdateAsync(int id, UpdateWorkItemRequest request, CancellationToken ct = default)
     {
         var item = await db.WorkItems.Include(w => w.Project).FirstOrDefaultAsync(w => w.Id == id, ct);
         if (item is null) return null;
+
+        var previousProjectId = item.ProjectId;
 
         if (request.ProjectId is int newProjectId && newProjectId != item.ProjectId)
         {
@@ -140,15 +148,27 @@ public class WorkItemService(HrdrDbContext db)
         await db.SaveChangesAsync(ct);
 
         await db.Entry(item).Reference(w => w.Project).LoadAsync(ct);
-        return ToDto(item);
+        var dto = ToDto(item);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.WorkItemUpdated,
+            WorkItemId: dto.Id,
+            ProjectId: dto.ProjectId,
+            PreviousProjectId: previousProjectId == dto.ProjectId ? null : previousProjectId,
+            Item: dto), ct);
+        return dto;
     }
 
     public async Task<bool> DeleteAsync(int id, CancellationToken ct = default)
     {
         var item = await db.WorkItems.FirstOrDefaultAsync(w => w.Id == id, ct);
         if (item is null) return false;
+        var projectId = item.ProjectId;
         db.WorkItems.Remove(item);
         await db.SaveChangesAsync(ct);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.WorkItemDeleted,
+            WorkItemId: id,
+            ProjectId: projectId), ct);
         return true;
     }
 
@@ -185,6 +205,10 @@ public class WorkItemService(HrdrDbContext db)
         }
 
         await db.SaveChangesAsync(ct);
+        await changes.NotifyAsync(new BoardChange(
+            BoardChangeKind.WorkItemsReordered,
+            ProjectId: projectId,
+            OrderedIds: orderedIds.ToArray()), ct);
     }
 
     private static WorkItemDto ToDto(WorkItem w) =>

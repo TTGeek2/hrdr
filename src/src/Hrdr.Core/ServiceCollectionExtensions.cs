@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Hrdr.Core.Data;
 using Hrdr.Core.Services;
 
@@ -12,6 +13,7 @@ public static class ServiceCollectionExtensions
         services.AddDbContext<HrdrDbContext>(options =>
             options.UseSqlite(connectionString));
 
+        services.TryAddSingleton<IBoardChangeNotifier, NullBoardChangeNotifier>();
         services.AddScoped<ProjectService>();
         services.AddScoped<WorkItemService>();
         services.AddScoped<CommentService>();
